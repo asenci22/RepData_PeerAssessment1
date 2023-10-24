@@ -89,5 +89,5 @@ new_activity <- new_activity %>%
   group_by(wDay, interval) %>%
   summarise(average = mean(steps))
 
-qplot(interval, average, data = new_activity, facets = .~wDay, geom = "line",
-      xlab = "Interval", ylab = "Average number of steps taken") + labs(colour = 'Type of day') + facet_wrap(facets = .~wDay, nrow = 2, ncol = 1)
+qplot(interval, average, data = new_activity, color = factor(wDay), geom = "line",
+      xlab = "Interval", ylab = "Average number of steps taken") + labs(colour = 'Type of day')
