@@ -26,11 +26,9 @@ grouped <- data %>%
   summarise(total = sum(steps, na.rm = TRUE) )
 
 grouped$date <- as.Date(grouped$date, "%Y-%m-%d")
-days <- seq(1, length(grouped$date))
-barplot(grouped$total~days,offset = 0, 
+hist(grouped$total, 
         main = "Total number of steps taken each day",
-        xlab = "Days", ylab = "Total number of steps",
-        axis.lty = 1)
+        xlab = "Total number of steps", ylab = "Frequency")
 ```
 
 The mean value of the total number of steps taken per day is `r mean(grouped$total)`, while the median is equal to `r median(grouped$total)`.
@@ -62,11 +60,9 @@ new_dataset <- new_dataset %>%
   summarise(total = sum(steps))
 
 head(new_dataset)
-days <- seq(1, length(new_dataset$date))
-barplot(new_dataset$total~days,offset = 0, 
+hist(new_dataset$total, 
         main = "Total number of steps taken each day",
-        xlab = "Days", ylab = "Total number of steps",
-        axis.lty = 1)
+        xlab = "Total number of steps taken each day", ylab = "Frequency")
 ```
 
 The mean value of the total number of steps taken per day is `r mean(new_dataset$total)`, while the median is equal to `r median(new_dataset$total)`. The mean value is slightly higher while the median is the same.
